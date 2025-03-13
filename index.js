@@ -4,7 +4,6 @@ var cors = require("cors");
 
 const app = express();
 app.use(cors());
-const PORT = 3001;
 app.use(express.json());
 
 morgan.token("postBody", (req, res) => {
@@ -92,6 +91,7 @@ app.post("/api/persons/", (req, res) => {
 });
 
 
+const PORT = process.env.PORT || 3001; // Use Railway's assigned port
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
